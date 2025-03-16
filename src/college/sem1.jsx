@@ -5,17 +5,17 @@ const dsaTopics = [
   {
     subject: "Mathematics 1",
  
-    video: "https://www.youtube.com/@Sanonlineclasses/playlists",
+    video: "https://youtu.be/w2WdvIHW4v4",
     syllabus:"https://drive.google.com/file/d/1x0Uoo2afoK5RSBp0J7DoA2mE4R6RkEDt/view?usp=sharing"
   },
   {
-    subject: "INT 108",
-   
-    video: "https://youtu.be/UrsmFxEIp5k?si=EsuqTAnB0GAMjwUs",
+    subject: "Physics",
+    notes: "https://takeuforward.org/interview-experience/linked-list-notes/",
+    video: "https://youtu.be/NobHlGUjV3g",
     syllabus:""
   },
   {
-    subject: "CHE110 (Environmental Studies)",
+    subject: "C",
     notes: "https://takeuforward.org/interview-experience/stacks-queues-notes/",
     video: "https://youtu.be/_eG7zNOZKNY",
     syllabus:""
@@ -28,7 +28,7 @@ const dsaTopics = [
   }
 ];
 
-export default function Semfirst() {
+export default function StriverDSASheet() {
   return (
     <div className="co">
       <h1 className="ti">Semester 1 </h1>
@@ -47,20 +47,15 @@ export default function Semfirst() {
               <tr key={index}>
                 <td>{topic.subject}</td>
                 <td>
-        {topic.subject === "INT 108" ? (
-          <a href="https://drive.google.com/file/d/1BLgbnpzxWZlze_mnz_QGI57frnEDrQ8Q/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="bt">Ref Book</a>
-        ) : (
-          <>
-            <a href="https://drive.google.com/file/d/1NVa1X7Si6yyC9rHpkl4qIOm2a74Z6xEy/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="bt">1</a>
-            <a href="https://drive.google.com/file/d/1QGyzcKlIm5-l_6Iq2usmfrmLyNq4zSnu/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="bt">2</a>
-            <a href="https://drive.google.com/file/d/1NmreW-dDoF4f7Kp-YzkG1WznwLv96VQ5/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="bt">3</a>
-            <a href="https://drive.google.com/file/d/1HxgUHI6de_DgZVQ11XJZUGovuiUVrpoK/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="bt">4</a>
-            <a href="https://drive.google.com/file/d/1PEDdQlfHz_neJTdl0EBx0Vqkx-LZAPnx/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="bt">5</a>
-            <a href="https://drive.google.com/file/d/1CwaeE1cM8uWYBFr10ew9VEkYWuTD5w-i/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="bt">6</a>
-          </>
-        )}
-      </td>
+                  <a href="https://drive.google.com/file/d/1NVa1X7Si6yyC9rHpkl4qIOm2a74Z6xEy/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="bt">1</a>
+                  <a href="https://drive.google.com/file/d/1QGyzcKlIm5-l_6Iq2usmfrmLyNq4zSnu/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="bt">2</a>
                 
+                  <a href="https://drive.google.com/file/d/1NmreW-dDoF4f7Kp-YzkG1WznwLv96VQ5/view?usp=sharing " target="_blank" rel="noopener noreferrer" className="bt">3</a>
+                  <a href="https://drive.google.com/file/d/1HxgUHI6de_DgZVQ11XJZUGovuiUVrpoK/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="bt">4</a>
+                  <a href="https://drive.google.com/file/d/1PEDdQlfHz_neJTdl0EBx0Vqkx-LZAPnx/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="bt">5</a>
+                  <a href="https://drive.google.com/file/d/1CwaeE1cM8uWYBFr10ew9VEkYWuTD5w-i/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="bt">6</a>
+                  
+                </td>
                 <td>
                   <a href={topic.video} target="_blank" rel="noopener noreferrer" className="bt">Watch Video</a>
                 </td>
