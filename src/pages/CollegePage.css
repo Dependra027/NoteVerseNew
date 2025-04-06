@@ -63,16 +63,14 @@
     display: inline-block;
     padding: 10px 20px;
     color: #121212;
-    background-color: #bb86fc;
+  
     border-radius: 4px;
     text-decoration: none;
     font-weight: bold;
     transition: background-color 0.3s ease;
 }
 
-.page-content a:hover {
-    background-color: #3700b3;
-}
+
 .btn {
     --color: #00A97F;
     --color2: rgb(10, 25, 30);
