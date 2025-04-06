@@ -19,7 +19,7 @@ import EleventhGradeNotes from './pages/EleventhGradeNotes';
 import TwelfthGradeNotes from './pages/TwelfthGradeNotes';
 import CollegePage from './pages/CollegePage';
 import { getDownloadURL,ref } from 'firebase/storage';
-import Footer from './components/footer';
+import Footer from './components/Footer';
 import Semfirst from './college/sem1';
 
 
