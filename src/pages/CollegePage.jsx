@@ -80,8 +80,10 @@ return(
           <div className="page-content">
             <h3>{note.name}</h3>
             <h4>{note.Description}</h4>
-            <a href={note.Link}>Click here</a>
-            
+           
+           
+<button className="btn"> <a href={note.Link}>Click here</a>
+</button>
           </div>
         </div>
       ))}
