@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import "./index.css"
+import "./index.css";
 import 'font-awesome/css/font-awesome.min.css';
+import ScrollToTop from "./ScrollToTop";
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -18,14 +19,14 @@ import TenthGradeNotes from './pages/TenthGradeNotes';
 import EleventhGradeNotes from './pages/EleventhGradeNotes';
 import TwelfthGradeNotes from './pages/TwelfthGradeNotes';
 import CollegePage from './pages/CollegePage';
-import { getDownloadURL,ref } from 'firebase/storage';
 import Footer from './components/Footer';
 import Semfirst from './college/sem1';
-
-
 import About from './pages/About';
 import Privacy from './pages/Privacy';
 import Feedback from './pages/FeedBack';
+
+// 🔮 Pattern animation background
+import Pattern from './components/Pattern';
 
 // Firebase configuration
 const firebaseConfig = {
@@ -45,25 +46,18 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showLoginPopup, setShowLoginPopup] = useState(false);
   const [username, setUsername] = useState('');
-  
-  
-  // Initialize AOS
+
   useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: false,
-    });
+    AOS.init({ duration: 1000, once: false });
   }, []);
 
-  // Persistent login check with Firebase
   useEffect(() => {
-    // Check for Firebase auth state changes
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setIsLoggedIn(true);
         setUsername(user.email);
         localStorage.setItem('username', user.email);
-        localStorage.setItem('isLoggedIn', 'true'); // Track login state
+        localStorage.setItem('isLoggedIn', 'true');
       } else {
         setIsLoggedIn(false);
         setUsername('');
@@ -72,15 +66,20 @@ function App() {
       }
     });
 
-    // Show login popup after 5 seconds if not logged in
     const timer = setTimeout(() => {
       if (!isLoggedIn) {
         setShowLoginPopup(true);
       }
     }, 5000);
 
-    return () => clearTimeout(timer); // Cleanup timer on component unmount
-  }, [isLoggedIn]); // Run this effect whenever isLoggedIn changes
+    return () => clearTimeout(timer);
+  }, [isLoggedIn]);
+
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+  }, []);
 
   const handleLogout = () => {
     auth.signOut();
@@ -92,27 +91,35 @@ function App() {
 
   return (
     <Router>
-      <Navbar 
-        isLoggedIn={isLoggedIn} 
-        username={username} 
-        setShowLoginPopup={setShowLoginPopup} 
+      <ScrollToTop />
+
+      {/* 🌀 Background Animation */}
+      <Pattern />
+
+      {/* 🔗 Navbar */}
+      <Navbar
+        isLoggedIn={isLoggedIn}
+        username={username}
+        setShowLoginPopup={setShowLoginPopup}
         handleLogout={handleLogout}
       />
-      
+
+      {/* 🔒 Login Popup */}
       {showLoginPopup && (
-        <LoginPopup 
-          onClose={() => setShowLoginPopup(false)} 
-          setIsLoggedIn={setIsLoggedIn} 
-          setUsername={setUsername} 
+        <LoginPopup
+          onClose={() => setShowLoginPopup(false)}
+          setIsLoggedIn={setIsLoggedIn}
+          setUsername={setUsername}
         />
       )}
 
-      <main style={{ padding: '20px', color: '#fff' }}>
+      {/* 🧠 Main Content */}
+      <main style={{ padding: '20px', color: '#fff', position: 'relative', zIndex: 1, marginTop: '60px' }}>
         <Routes>
           <Route path="/" element={
             <>
-              <div style={{ padding: '20px', color: '#fff' }} data-aos="fade-up">
-                <h1>Welcome User!</h1>
+              <div data-aos="fade-up">
+                <h1 id="welcome">Welcome User!</h1>
                 <p>"Your Gateway to Smarter Learning – Notes for Every Step of Your Journey!"</p>
               </div>
               <div data-aos="fade-up">
@@ -134,17 +141,16 @@ function App() {
           <Route path="/12th" element={<TwelfthGradeNotes />} />
           <Route path="/upload" element={<UploadNotePage />} />
           <Route path="/Engineering" element={<CollegePage />} />
-
-          <Route path="/About" element={<About/>}/>
-          <Route path="/Privacy" element={<Privacy/>}/>
-          <Route path="/Feedback" element={<Feedback/>}/>
-          <Route path="/semfirst" element={<Semfirst/>}/>
+          <Route path="/About" element={<About />} />
+          <Route path="/Privacy" element={<Privacy />} />
+          <Route path="/Feedback" element={<Feedback />} />
+          <Route path="/semfirst" element={<Semfirst />} />
         </Routes>
       </main>
+
+      {/* 📦 Footer */}
       <Footer />
     </Router>
-    
-
   );
 }
 

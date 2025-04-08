@@ -1,9 +1,4 @@
-body{
-    background-image: url("https://i.pinimg.com/736x/39/8a/12/398a12c880571668c6763527b5aeab20.jpg");
-    background-size: cover; 
-  background-repeat: no-repeat; 
-  background-attachment: fixed; 
-}
+
 #welcome {
   display: inline-block;
   font-size: 2rem;

@@ -1,30 +1,45 @@
+// eslint-disable-next-line no-unused-vars
 import React from "react";
 import "./semfirst.css";
 
 const dsaTopics = [
   {
     subject: "Mathematics 1",
- 
+    notes: [
+      "https://drive.google.com/file/d/1NVa1X7Si6yyC9rHpkl4qIOm2a74Z6xEy/view?usp=sharing",
+      "https://drive.google.com/file/d/1QGyzcKlIm5-l_6Iq2usmfrmLyNq4zSnu/view?usp=sharing",
+      "https://drive.google.com/file/d/1NmreW-dDoF4f7Kp-YzkG1WznwLv96VQ5/view?usp=sharing ",
+      "https://drive.google.com/file/d/1HxgUHI6de_DgZVQ11XJZUGovuiUVrpoK/view?usp=sharing",
+      "https://drive.google.com/file/d/1PEDdQlfHz_neJTdl0EBx0Vqkx-LZAPnx/view?usp=sharing",
+      "https://drive.google.com/file/d/1CwaeE1cM8uWYBFr10ew9VEkYWuTD5w-i/view?usp=sharing" 
+    ],
     video: "https://youtu.be/w2WdvIHW4v4",
-    syllabus:"https://drive.google.com/file/d/1x0Uoo2afoK5RSBp0J7DoA2mE4R6RkEDt/view?usp=sharing"
+    syllabus: "https://drive.google.com/file/d/1x0Uoo2afoK5RSBp0J7DoA2mE4R6RkEDt/view?usp=sharing"
   },
   {
     subject: "Physics",
-    notes: "https://takeuforward.org/interview-experience/linked-list-notes/",
+    notes: [
+      "https://drive.google.com/file/d/1NmreW-dDoF4f7Kp-YzkG1WznwLv96VQ5/view?usp=sharing"
+    ],
     video: "https://youtu.be/NobHlGUjV3g",
-    syllabus:""
+    syllabus: ""
   },
   {
     subject: "C",
-    notes: "https://takeuforward.org/interview-experience/stacks-queues-notes/",
+    notes: [
+      "https://drive.google.com/file/d/1HxgUHI6de_DgZVQ11XJZUGovuiUVrpoK/view?usp=sharing",
+      "https://drive.google.com/file/d/1PEDdQlfHz_neJTdl0EBx0Vqkx-LZAPnx/view?usp=sharing"
+    ],
     video: "https://youtu.be/_eG7zNOZKNY",
-    syllabus:""
+    syllabus: ""
   },
   {
     subject: "Python",
-    notes: "https://takeuforward.org/interview-experience/binary-trees-notes/",
+    notes: [
+      "https://drive.google.com/file/d/1CwaeE1cM8uWYBFr10ew9VEkYWuTD5w-i/view?usp=sharing"
+    ],
     video: "https://youtu.be/oWn1-rphgYw",
-    syllabus:""
+    syllabus: ""
   }
 ];
 
@@ -47,14 +62,17 @@ export default function StriverDSASheet() {
               <tr key={index}>
                 <td>{topic.subject}</td>
                 <td>
-                  <a href="https://drive.google.com/file/d/1NVa1X7Si6yyC9rHpkl4qIOm2a74Z6xEy/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="bt">1</a>
-                  <a href="https://drive.google.com/file/d/1QGyzcKlIm5-l_6Iq2usmfrmLyNq4zSnu/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="bt">2</a>
-                
-                  <a href="https://drive.google.com/file/d/1NmreW-dDoF4f7Kp-YzkG1WznwLv96VQ5/view?usp=sharing " target="_blank" rel="noopener noreferrer" className="bt">3</a>
-                  <a href="https://drive.google.com/file/d/1HxgUHI6de_DgZVQ11XJZUGovuiUVrpoK/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="bt">4</a>
-                  <a href="https://drive.google.com/file/d/1PEDdQlfHz_neJTdl0EBx0Vqkx-LZAPnx/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="bt">5</a>
-                  <a href="https://drive.google.com/file/d/1CwaeE1cM8uWYBFr10ew9VEkYWuTD5w-i/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="bt">6</a>
-                  
+                  {topic.notes.map((note, noteIndex) => (
+                    <a
+                      key={noteIndex}
+                      href={note}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bt"
+                    >
+                      {noteIndex + 1}
+                    </a>
+                  ))}
                 </td>
                 <td>
                   <a href={topic.video} target="_blank" rel="noopener noreferrer" className="bt">Watch Video</a>

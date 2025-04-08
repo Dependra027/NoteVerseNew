@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'; // Keep this for other links
 import { Link as ScrollLink } from 'react-scroll'; // Import Link from react-scroll
 import './Navbar.css';
+import Input from './Searchbar';
 
 const Navbar = ({ isLoggedIn, username, setShowLoginPopup, handleLogout }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -55,6 +56,7 @@ const Navbar = ({ isLoggedIn, username, setShowLoginPopup, handleLogout }) => {
         ☰
       </button>
 
+
       <ul className={`navbar-links ${isMenuOpen ? 'open' : ''}`}>
         <li><Link to="/" onClick={handleOptionClick}>Home</Link></li>
         <li className="dropdown">
@@ -97,9 +99,15 @@ const Navbar = ({ isLoggedIn, username, setShowLoginPopup, handleLogout }) => {
         </li>
       </ul>
 
-      <div className="navbar-search">
+      {/* <div className="navbar-search">
         <input type="text" placeholder="Search..." />
-      </div>
+      </div> */}
+      <div className="navbar-search">
+  <Input />
+</div>
+
+
+
     </nav>
   );
 };
