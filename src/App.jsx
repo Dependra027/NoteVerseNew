@@ -93,8 +93,8 @@ function App() {
     <Router>
       <ScrollToTop />
 
-      {/* 🌀 Background Animation */}
-      <Pattern />
+      {/* 🌀 Background Animation
+      <Pattern /> */}
 
       {/* 🔗 Navbar */}
       <Navbar

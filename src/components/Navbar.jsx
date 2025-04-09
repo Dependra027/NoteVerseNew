@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'; // Keep this for other links
 import { Link as ScrollLink } from 'react-scroll'; // Import Link from react-scroll
 import './Navbar.css';
 import Input from './Searchbar';
+import Switch from './button';
 
 const Navbar = ({ isLoggedIn, username, setShowLoginPopup, handleLogout }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -51,12 +52,13 @@ const Navbar = ({ isLoggedIn, username, setShowLoginPopup, handleLogout }) => {
       <div className="navbar-logo">
         <h1>NoteVerse</h1>
       </div>
+      <Switch />
 
       <button className="menu-toggle" onClick={toggleMenu}>
         ☰
       </button>
 
-
+    
       <ul className={`navbar-links ${isMenuOpen ? 'open' : ''}`}>
         <li><Link to="/" onClick={handleOptionClick}>Home</Link></li>
         <li className="dropdown">

@@ -1,8 +1,12 @@
-// LoginPopup.js
 import { useState, useEffect } from 'react';
 import { initializeApp } from "firebase/app";
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import styled from 'styled-components';
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider
+} from "firebase/auth";
 import './LoginPopup.css';
 
 const firebaseConfig = {
@@ -158,7 +162,5 @@ const LoginPopup = ({ onClose, setIsLoggedIn, setUsername }) => {
     </div>
   );
 };
-
-
 
 export default LoginPopup;
